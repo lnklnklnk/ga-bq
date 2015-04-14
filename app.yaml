@@ -1,0 +1,24 @@
+application: 
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /tasks/process_queue
+  script: process_queue.app
+  login: admin
+
+- url: /tasks/create_bq_table
+  script: create_bq_table.app
+  login: admin
+
+- url: /js
+  static_dir: js
+
+- url: /collect
+  script: main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
