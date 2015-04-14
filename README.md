@@ -16,4 +16,4 @@ Stream raw hit-level Google Analytics data into BigQuery
 1. Include plugin on your website. Add line:  <code>&lt;script async src="http://[your-app].appspot.com/js/gabq.js"&gt;&lt;/script&gt;</code> before GA code and <code>ga('require', 'gabqplugin');</code> after <code>ga('create',..)</code>
 1. Now you raw GA data collects in BigQuery table
 
-Note: Ecommerce data is currently not supported, it will be added soon
+Note: Ecomerce data is currently not supported, it will be added soon
