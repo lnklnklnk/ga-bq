@@ -202,29 +202,13 @@ class BQLoader():
                 {
                     "name": "currencyCode",
                     "type": "STRING"
-                },
-                {
-                    "name": "localTransactionRevenue",
-                    "type": "INTEGER"
-                },
-                {
-                    "name": "localTransactionTax",
-                    "type": "INTEGER"
-                },
-                {
-                    "name": "localTransactionShipping",
-                    "type": "INTEGER"
-                },
+                }
             ]
         },
         {
             "name": "item",
             "type": "RECORD",
             "fields": [
-                {
-                    "name": "transactionId",
-                    "type": "STRING"
-                },
                 {
                     "name": "productName",
                     "type": "STRING"
@@ -243,14 +227,6 @@ class BQLoader():
                 },
                 {
                     "name": "itemRevenue",
-                    "type": "INTEGER"
-                },
-                {
-                    "name": "currencyCode",
-                    "type": "STRING"
-                },
-                {
-                    "name": "localItemRevenue",
                     "type": "INTEGER"
                 }
             ]
