@@ -174,6 +174,86 @@ class BQLoader():
                     "type": "STRING"
                 }
             ]
+        },
+        {
+            "name": "transaction",
+            "type": "RECORD",
+            "fields": [
+                {
+                    "name": "transactionId",
+                    "type": "STRING"
+                },
+                {
+                    "name": "transactionRevenue",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "transactionTax",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "transactionShipping",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "affiliation",
+                    "type": "STRING"
+                },
+                {
+                    "name": "currencyCode",
+                    "type": "STRING"
+                },
+                {
+                    "name": "localTransactionRevenue",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "localTransactionTax",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "localTransactionShipping",
+                    "type": "INTEGER"
+                },
+            ]
+        },
+        {
+            "name": "item",
+            "type": "RECORD",
+            "fields": [
+                {
+                    "name": "transactionId",
+                    "type": "STRING"
+                },
+                {
+                    "name": "productName",
+                    "type": "STRING"
+                },
+                {
+                    "name": "productCategory",
+                    "type": "STRING"
+                },
+                {
+                    "name": "productSku",
+                    "type": "STRING"
+                },
+                {
+                    "name": "itemQuantity",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "itemRevenue",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "currencyCode",
+                    "type": "STRING"
+                },
+                {
+                    "name": "localItemRevenue",
+                    "type": "INTEGER"
+                }
+            ]
         }
     ]
 
