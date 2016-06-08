@@ -35,6 +35,18 @@ class MainHandler(webapp2.RequestHandler):
         'ea': 'eventInfo.eventAction',
         'el': 'eventInfo.eventLabel',
         'ev': 'eventInfo.eventValue',
+        'ti': 'transaction.transactionId',
+        'ta': 'transaction.affiliation',
+        'tr': 'transaction.transactionRevenue',
+        'ts': 'transaction.transactionShipping',
+        'tt': 'transaction.transactionTax',
+        'cu': 'transaction.currencyCode',
+        'in': 'item.productName',
+        'ip': 'item.itemRevenue',
+        'iq': 'item.itemQuantity',
+        'ic': 'item.productSku',
+        'iv': 'item.productCategory'
+
     }
 
     def process_ga_params(self, params):
@@ -102,6 +114,7 @@ class MainHandler(webapp2.RequestHandler):
 
         data = self.process_ga_params(self.request.GET)
 
+        #logging.info(data)
         q = taskqueue.Queue('pull-queue')
 
         tasks = [taskqueue.Task(payload=json.dumps(data), method='PULL')]
