@@ -14,7 +14,7 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
 
         q = taskqueue.Queue('pull-queue')
-        tasks = q.lease_tasks(1, 100)
+        tasks = q.lease_tasks(1, 1000)
         logging.info(len(tasks))
         if len(tasks)>0:
 
