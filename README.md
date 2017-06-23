@@ -1,7 +1,8 @@
 # Google Analytics -> BigQuery streaming
+
 Stream raw hit-level Google Analytics data into BigQuery
 
-##Installation
+## Installation
 
 1. Create new project here https://console.developers.google.com/project
 1. Create new dataset in Google BigQuery https://bigquery.cloud.google.com
@@ -13,7 +14,36 @@ Stream raw hit-level Google Analytics data into BigQuery
 1. Set app_id, dataset_id, table_id in bqloader.py
 1. Deploy application
 1. Visit [your-app].appspot.com/tasks/create_bq_table to create BigQuery table
-1. Include plugin on your website. Add line:  <code>&lt;script async src="http://[your-app].appspot.com/js/gabq.js"&gt;&lt;/script&gt;</code> after GA code and <code>ga('require', 'gabqplugin');</code> after <code>ga('create',..)</code>
+1. Include plugin on your website. Add line: `<script async src="http://[your-app].appspot.com/js/gabq.js"></script>` after GA code and `ga('require', 'gabqplugin');` after `ga('create',..)`
 1. Now you raw GA data collects in BigQuery table
 
 Note: Ecomerce data is currently not supported, it will be added soon
+
+## Tuning
+
+In case you have more than 1000 events per minute you may duplicate number of cron workers by copy pasting them in cron.yaml, e.g. something like this:
+
+```
+cron:
+- description: process queue
+  url: /tasks/process_queue
+  schedule: every 1 mins
+  
+- description: process queue
+  url: /tasks/process_queue
+  schedule: every 1 mins
+  
+- description: process queue
+  url: /tasks/process_queue
+  schedule: every 1 mins  
+  
+- description: process queue
+  url: /tasks/process_queue
+  schedule: every 1 mins  
+  
+- description: process queue
+  url: /tasks/process_queue
+  schedule: every 1 mins  
+```
+
+Take in mind that there is an limit - you can not insert more than 1000 rows into bigquery at once, so we are scaling this by number of cronjobs, so now each minute we will be able to proccess 5000 events. While playing around we have noticed that there is an limit to number of cronjobs at 60 - so with this in mind, you may grow up to 60 000 per minute.
