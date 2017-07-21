@@ -46,4 +46,4 @@ cron:
   schedule: every 1 mins  
 ```
 
-Take in mind that there is an limit - you can not insert more than 1000 rows into bigquery at once, so we are scaling this by number of cronjobs, so now each minute we will be able to proccess 5000 events. While playing around we have noticed that there is an limit to number of cronjobs at 60 - so with this in mind, you may grow up to 60 000 per minute.
+Take in mind that there is an limit - you can not lease more than 1000 rows from queue at once, so we are scaling this by number of cronjobs, so now each minute we will be able to proccess 5000 events. While playing around we have noticed that there is an limit to number of cronjobs at 60 - so with this in mind, you may grow up to 60 000 per minute.
