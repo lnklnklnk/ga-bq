@@ -86,7 +86,8 @@ class MainHandler(webapp2.RequestHandler):
                     data['trafficSource']['content'] = parsed_query_string['utm_content'][0]
                     parsed_query_string.pop('utm_content', None)
 
-                params['dp'] += '?' + urlencode(parsed_query_string)
+                if parsed_query_string:
+                    params['dp'] += '?' + urlencode(parsed_query_string)
 
 
         for key, value in self.params_mapping.iteritems():
