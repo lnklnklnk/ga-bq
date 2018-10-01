@@ -71,6 +71,16 @@ class MainHandler(webapp2.RequestHandler):
                         data['trafficSource'] = {}
                     data['trafficSource']['campaign'] = parsed_query_string['utm_campaign'][0]
 
+                if 'utm_term' in parsed_query_string:
+                    if 'trafficSource' not in data:
+                        data['trafficSource'] = {}
+                    data['trafficSource']['term'] = parsed_query_string['utm_term'][0]
+
+                if 'utm_content' in parsed_query_string:
+                    if 'trafficSource' not in data:
+                        data['trafficSource'] = {}
+                    data['trafficSource']['content'] = parsed_query_string['utm_content'][0]
+
         for key, value in self.params_mapping.iteritems():
             if key in self.request.GET:
                 data = self.map_params(data, value, params[key])

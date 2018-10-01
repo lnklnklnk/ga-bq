@@ -120,6 +120,14 @@ class BQLoader():
                 {
                     "name": "medium",
                     "type": "STRING"
+                },
+                {
+                    "name": "term",
+                    "type": "STRING"
+                },
+                {
+                    "name": "content",
+                    "type": "STRING"
                 }
             ]
         },
