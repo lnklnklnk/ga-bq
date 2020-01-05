@@ -55,5 +55,5 @@ Take in mind that there is an limit - you can not lease more than 1000 rows from
 If you don't see your `pull-queue` queue in the Cloud Tasks underneath Pull queues display on the developer console, try deploying the queue config explicitly:
 
 ```
-gcould app deploy queue.yaml --project [your-project]
+gcloud app deploy queue.yaml --project [your-project]
 ```
